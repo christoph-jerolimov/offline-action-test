@@ -8,5 +8,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - run: env
+      - run: ping -c 3 www.redhat.com
+      - run: sudo unshare --net ping -c 3 www.redhat.com"
       - run: sudo unshare --net /bin/bash -c "ip link set up lo && npm install -g bats"
       - run: bats -v
