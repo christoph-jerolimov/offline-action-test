@@ -8,5 +8,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: sudo unshare --net npm install -g bats
+      - run: sudo unshare --net /bin/bash -c "ip link set up lo && npm install -g bats"
       - run: bats -v
